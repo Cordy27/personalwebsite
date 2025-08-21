@@ -1,0 +1,373 @@
+%
+%学术简历LaTeX模板
+% 作者: Dubasi Pavan Kumar
+% LinkedIn: https://www.linkedin.com/in/im-pavankumar/
+% 许可证: MIT
+%
+% 如有错误、建议或改进，请联系:
+% 邮箱: pavankumard.pg19.ma@nitp.ac.in
+%
+
+
+
+\documentclass[a4paper,11pt]{article}
+
+% 包导入
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{CJKutf8}
+
+% 颜色定义
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% 页面布局
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % 清除所有页眉和页脚字段
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt} % 解决fancyhdr警告
+
+% 超链接设置（移到fancyhdr后以解决警告）
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% 自定义框设置
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL样式
+\urlstyle{same}
+
+% 文本对齐
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% 章节格式
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% 自定义命令
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% 图标大小和定位命令
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% 字体选项
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (类似Arial/Calibri)
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (类似Times New Roman)
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (优雅衬线字体)
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (可读衬线字体)
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (类似Trebuchet MS)
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (另一个Arial/Calibri替代)
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (另一个优雅衬线选项)
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (另一个Times New Roman替代)
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (干净衬线字体)
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+\headerfontiii
+
+% 页眉
+\begin{center}
+    {\Huge\textbf{司昊阳}}
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    +86-13629401287 | \href{mailto:youremail@example.com}{hy-si@foxmail.com}
+    }
+\end{center}
+
+% 照片放在右上角
+\begin{textblock*}{2.5cm}(16.5cm,-0.2cm)
+    \includegraphics[width=2.5cm,height=3.5cm]{passportsize-s.jpg}
+\end{textblock*}
+
+\vspace{1mm}
+
+\section{\textbf{教育背景}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{中央民族大学}{北京，中国}
+{经济学学士学位}{2022年9月 - 2026年6月}
+\resumeItemListStart
+\item 主修\textbf{金融学}，辅修\textbf{数学}相关课程
+\item 核心课程：国际金融\textbf{(93/100)}、金融市场学、证券投资\textbf{(95/100)}、金融风险管理、高等数学II\textbf{(91/100)}、统计学、信息素养II(Python)\textbf{(97/100)}、数学分析、高等代数、代数方法等
+\resumeItemListEnd
+
+\resumeSubheading
+{中央民族大学 \& 中国国际组织人才培养中心 [\href{https://ppe.ccipe.edu.cn/}{\faIcon{globe}}]}{北京，中国}
+{国际组织后备人才微专业}{2024年9月 - 2025年9月}
+\resumeItemListStart
+\item 核心课程：数据科学与大数据分析 \textbf{(92/100)}、大语言模型：基础、实践与挑战 \textbf{(100/100)}等
+\resumeItemListEnd
+
+\resumeSubheading
+{剑桥大学·Lucy Cavendish College}{剑桥，英国}
+{2024年商业与金融冬季学术研究研讨会}{2023年12月 - 2024年1月}
+
+\resumeItemListStart
+\item 获得\textbf{Prof. Nicola Clayton}教授（项目学术主任）的推荐信
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+
+\section{\textbf{工作经历}}
+\vspace{-0.4mm}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+      {{量科智视信息科技有限公司[\href{https://quavictech.com/}{\faIcon{globe}}]}}{北京，中国}
+      {联合创始人，产品负责人}{2024年8月 - 2025年8月}
+      \resumeItemListStart
+        \item 主导开发多模态AI驱动的戏剧教育平台，从0到1完成产品设计到商业化落地，首年B2G收入突破\textbf{10万元人民币}
+        \item 成功获得Wteam\textbf{非稀释性资金}投资，获得投资方对技术实力和商业模式的认可
+        \item 独立设计并开发集成大语言模型的模块化Web应用架构，在中国大学生计算机设计大赛中荣获全国二等奖
+      \resumeItemListEnd 
+  \resumeSubheading
+    {奇绩创坛（原Y Combinator中国）[\href{https://www.miracleplus.com/}{\faIcon{globe}}]}{北京，中国}
+    {创始人关系与精准研究（实习生）}{2024年8月 - 2025年1月}
+    \resumeItemListStart
+      \item 深度研究前沿AI技术（AI for Science、大语言模型、多模态），识别新兴趋势并为投资决策提供数据支撑
+      \item 系统梳理\textbf{200+}所高校和企业的人才网络资源，建立创业项目储备库，促进产学研商业化合作
+      \item 独立完成项目初步筛选（市场规模分析、单位经济测算）和\textbf{Pre-DD}，撰写数据驱动的投资分析报告，为投资决策提供专业建议
+      \item 深度参与\textbf{Sealos}共同领投的A轮前融资和实时AI仿真平台种子轮融资，负责商业尽职调查和条款清单设计，两轮融资规模均\textbf{达数千万人民币}
+    \resumeItemListEnd
+ \resumeSubheading
+    {光大证券 [\href{http://www.ebscn.com/}{\faIcon{globe}}]}{远程}
+    {量化研究实习生}{2024年6月 - 2024年8月}
+    \resumeItemListStart
+      \item 熟练运用Python和量化分析工具进行\textbf{策略回测}，系统评估交易算法的有效性和稳定性
+      \item 独立开发多维度量化策略体系，涵盖\textbf{选股框架}、\textbf{择时模型}和风险收益评估标准
+      \item 通过精细化参数调优和动态风险管理机制，持续优化现有策略，显著提升风险调整后收益水平
+    \resumeItemListEnd
+  \resumeSubheading
+    {卓晔私募基金 [\href{http://www.zhuoyetz.com/}{\faIcon{globe}}]}{远程}
+    {行业研究实习生}{2024年6月 - 2024年8月}
+    \resumeItemListStart
+      \item 深度参与PE投资AI基础设施领域\textbf{研究}，负责\textbf{数据清洗/挖掘}、行业洞察分析和投资价值评估框架构建
+      \item 全面支持AI行业\textbf{交易尽职调查}：深入分析行业发展趋势、竞争格局和目标公司基本面，为投资可行性评估和投资备忘录撰写提供专业支持
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+  
+\vspace{-6mm}
+
+\section{\textbf{研究项目}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+  {多模态大语言模型在金融K线分析中的结构创新}
+  {工具：Python, PyTorch, HuggingFace Transformers, NumPy, Pandas}
+  {2024年9月 – 2025年6月}
+  {[\href{http://gjcxcy.bjtu.edu.cn/}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item 在\textbf{LLaVA}投影层开发了\textbf{分割模块}，用于切片高分辨率K线图以改善视觉特征提取
+  \item 实现了图表片段与文本描述之间的跨模态嵌入对齐，将K线形态识别\textbf{准确率}提升\textbf{15\%}
+  \item 创建了基于PyTorch的\textbf{微调}管道，确保多模态模型在金融数据集上的稳定收敛
+  \item 应用量化评估指标（精确率、召回率、F1）分析模型在真实世界\textbf{K线模式检测}中的表现
+  \item 成功完成，获批为国家级大学生创新创业训练计划项目(GCCX202510052028)
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\vspace{-6mm}
+
+\section{\textbf{荣誉与奖项}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+  {"正大杯"全国大学生市场调研与分析大赛}
+  {中国商业统计学会、正大集团}
+  {2025年6月}
+  {{}[\href{http://www.china-cssc.org/show-289-1571-1.html}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item 全国一等奖
+\resumeItemListEnd
+
+\resumeProject
+  {内地与港澳台创新创业大赛}
+  {中国国际贸易促进委员会、中国商业经济学会等}
+  {2024年11月}
+  {{}[\href{http://cubec.org.cn/newsinfo/8279295.html}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item 入围奖
+\resumeItemListEnd
+
+\resumeProject
+  {中国数据新闻大赛}
+  {第九届中国数据新闻大赛组委会}
+  {2024年11月}
+  {{}[\href{http://www.cdjcow.com/}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item 全国二等奖
+\resumeItemListEnd
+
+
+\resumeProject
+  {全国大学生商业精英挑战赛创新创业竞赛}
+  {中国国际贸易促进委员会、中国商业经济学会等}
+  {2024年11月}
+  {{}[\href{http://www.cubec.org.cn/}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item 全国总决赛亚军
+  \item 全国一等奖
+\resumeItemListEnd
+
+\resumeProject
+  {中国大学生计算机设计大赛(4C)}
+  {中国大学生计算机设计大赛组委会}
+  {2024年7月}
+  {{}[\href{https://jsjds.blcu.edu.cn/gyds1/dsjj.htm}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item Web产品赛道全国二等奖
+\resumeItemListEnd
+
+\resumeProject
+  {全国大学生电子商务"创新、创意及创业"挑战赛}
+  {全国大学生电子商务"创新、创意及创业"挑战赛组委会}
+  {2024年7月}
+  {{}[\href{http://www.3chuang.net/}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item 全国二等奖
+\resumeItemListEnd
+
+\resumeProject
+  {全国大学生统计建模竞赛}
+  {中国统计教育学会}
+  {2023年8月}
+  {{}[\href{http://tjjmds.ai-learning.net/}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item 北京赛区一等奖
+\resumeItemListEnd
+
+\resumeProject
+  {国家级大学生创新创业实践项目(ID: 
+202410052002S)}
+  {中央民族大学 \& 中华人民共和国教育部}
+  {2024年6月}
+  {{}[\href{http://gjcxcy.bjtu.edu.cn/NewLXItemListForStudentDetail.aspx?ItemNo=1253680&year=2024&type=student&IsLXItem=0}{\textcolor{darkblue}{\faIcon{globe}}}]}
+
+
+
+
+\resumeSubHeadingListEnd
+
+\vspace{-6mm}
+
+\section{\textbf{技能}}
+\vspace{-0.4mm}
+\resumeHeadingSkillStart
+  \resumeSubItem{技术工具:}
+    {Python, R, MATLAB, C++, JavaScript, HTML/CSS, React.js, Flask, FastAPI, MySQL, MongoDB, SQLite}
+  \resumeSubItem{数据科学与分析:}
+    {PyTorch, scikit-learn, HuggingFace, Pandas, NumPy, Matplotlib, Stata, SPSS, Excel, LaTeX}
+  \resumeSubItem{核心能力:}
+    {金融建模、时间序列预测、多模态大语言模型、K线识别、量化分析、计量经济学、数据分析}
+  \resumeSubItem{语言能力:}
+    {雅思7.0分（阅读8.5分）}
+\resumeHeadingSkillEnd
+
+\end{CJK*}
+\end{document} 

@@ -1,0 +1,366 @@
+%
+%Academic CV LaTeX Template
+% Author: Dubasi Pavan Kumar
+% LinkedIn: https://www.linkedin.com/in/im-pavankumar/
+% License: MIT
+%
+% For errors, suggestions, or improvements, please contact:
+% Email: pavankumard.pg19.ma@nitp.ac.in
+%
+
+
+
+\documentclass[a4paper,11pt]{article}
+
+% Package imports
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% Page layout
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt} % Addressing fancyhdr warning
+
+% Hyperlink setup (moved after fancyhdr to address warning)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% Custom box settings
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL style
+\urlstyle{same}
+
+% Text alignment
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% Commands for icon sizing and positioning
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% Font options
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (similar to Arial/Calibri)
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (similar to Times New Roman)
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (elegant serif)
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (readable serif)
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (similar to Trebuchet MS)
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (another Arial/Calibri alternative)
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (another elegant serif option)
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (another Times New Roman alternative)
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (clean serif font)
+
+\begin{document}
+\headerfontiii
+
+% Header
+\begin{center}
+    {\Huge\textbf{Haoyang Si}}
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    +86-13629401287 | \href{mailto:youremail@example.com}{hy-si@foxmail.com}
+    }
+\end{center}
+
+\vspace{-8mm}
+
+\section{\textbf{Education}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Minzu University of China}{Beijing, China}
+{Bachelor's degree in Economics}{September 2022 - June 2026}
+\resumeItemListStart
+\item Major in \textbf{Finance} with Extensive Elective Coursework in \textbf{Mathematics} 
+\item Core Courses: International Finance\textbf{(93/100)}, Financial Marketing, Securities Investment\textbf{(95/100)}, Financial Risk Management, Advanced Mathematics II\textbf{(91/100)}, Statistics, Information Literacy II(Python)\textbf{(97/100)}, Mathematical Analysis, Advanced Algebra, Algebra method, etc.
+\item Average Score: \textbf{86.6/100}
+\resumeItemListEnd
+
+\resumeSubheading
+{Minzu University of China \& CCIPE [\href{https://ppe.ccipe.edu.cn/}{\faIcon{globe}}]}{Beijing, China}
+{Micro-major in "Reserve Talents for International Organizations"}{September 2024 - September 2025}
+\resumeItemListStart
+\item Core Courses: Data Science and Big Data Analysis \textbf{(92/100)}, Large Language Models: Foundations, Practices, and Challenges \textbf{(100/100)}, etc.
+\item Average Score: \textbf{96/100}
+\resumeItemListEnd
+
+\resumeSubheading
+{Lucy Cavendish College, University of Cambridge}{Cambridge, UK}
+{Winter Academic Research Seminar 2024 in Business \& Finance}{December 2023 - January 2024}
+
+\resumeItemListStart
+\item Earned a recommendation from \textbf{Prof. Nicola Clayton}, Programme Academic Director
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+
+\section{\textbf{Working Experience}}
+\vspace{-0.4mm}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+      {{Quavic Tech Co., Ltd.[\href{https://quavictech.com/}{\faIcon{globe}}]}}{Beijing, China}
+      {Co-founder, Product Lead}{August 2024 - Present}
+      \resumeItemListStart
+        \item Developed and launched a multimodal AI-powered theatre education platform, generating over\textbf{ 100,000 RMB }in first-year B2G revenue.
+        \item Secured \textbf{non-dilutive funding} from Wteam for technical and commercial potential.
+        \item Created a modular web application integrating large language models and was awarded National Second Prize in the Chinese Collegiate Computing Competition.
+      \resumeItemListEnd 
+  \resumeSubheading
+    {MiraclePlus(Former Y Combinator China) [\href{https://www.miracleplus.com/}{\faIcon{globe}}]}{Beijing, China}
+    {Founders Relations \& Precise Research (Intern)}{August 2024 - January 2025}
+    \resumeItemListStart
+      \item Researched frontier AI (AI for Science, LLMs, multimodal) to identify emerging trends and inform thematic deal sourcing
+      \item Mapped\textbf{ 200+ }university and enterprise talent networks to feed the startup pipeline and facilitate commercialization connections
+      \item Performed preliminary screening (market sizing, unit economics) and \textbf{Pre‑DD}, producing data‑driven memos with go/no‑go recommendations
+      \item Contributed to commercial due diligence and term‑sheet structuring for \textbf{Sealos}’ co‑led pre‑Series A financing and a real‑time AI simulation platform’s seed round, each \textbf{closing at tens of millions RMB.}
+    \resumeItemListEnd
+ \resumeSubheading
+    {Everbright Securities [\href{http://www.ebscn.com/}{\faIcon{globe}}]}{Remote}
+    {Quantitative Research Intern}{June 2024 - August 2024}
+    \resumeItemListStart
+      \item Used Python and quantitative tools for \textbf{strategy backtesting} to evaluate trading algorithms' effectiveness.
+      \item Developed quantitative strategies covering \textbf{stock selection frameworks}, \textbf{timing models}, and risk-return criteria.
+      \item Optimized existing strategies via parameter tuning and risk management to maximize risk-adjusted returns.
+    \resumeItemListEnd
+  \resumeSubheading
+    {Zhuoye Private Equity Fund [\href{http://www.zhuoyetz.com/}{\faIcon{globe}}]}{Remote}
+    {Equity Research Intern}{June 2024 - August 2024}
+    \resumeItemListStart
+      \item Conducted AI Infra \textbf{research} for PE investments, including \textbf{data scrubbing/mining}, synthesizing insights, and developing investment theses within valuation frameworks.
+      \item Supported AI-sector \textbf{deal due diligence}: analyzed sector dynamics, competitive positioning, and target fundamentals to assess investment viability, contributing to investment memos.
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+  
+\vspace{-6mm}
+
+\section{\textbf{Research Project}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+  {Structural Innovation in Multimodal LLM for Financial K‑Line Analysis}
+  {Tools: Python, PyTorch, HuggingFace Transformers, NumPy, Pandas}
+  {Sep 2024 – Jun 2025}
+  {[\href{http://gjcxcy.bjtu.edu.cn/}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item Developed a \textbf{segmentation module} in the \textbf{LLaVA} projection layer to slice high‑resolution candlestick charts for improved visual feature extraction  
+  \item Implemented cross‑modal embedding alignment between chart segments and textual descriptions, boosting K‑line formation recognition \textbf{accuracy} by \textbf{15\%}  
+  \item Created a PyTorch‑based\textbf{ fine‑tuning} pipeline for the multimodal model, ensuring stable convergence on financial datasets  
+  \item Applied quantitative evaluation metrics (precision, recall, F1) to analyze model performance on real‑world \textbf{K‑line pattern detection} 
+  \item Successfully concluded as an approved project in the National Undergraduate Innovation Training Program( GCCX202510052028)
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\vspace{-6mm}
+
+\section{\textbf{Honors and Awards}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+  {"C.P. Cup" National College Students Market Research and Analysis Competition}
+  {China Commercial Statistics Association, Charoen Pokphand Group}
+  {June 2025}
+  {{}[\href{http://www.china-cssc.org/show-289-1571-1.html}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item National First Prize
+\resumeItemListEnd
+
+\resumeProject
+  {Mainland and Hong Kong-Macau Innovation and Entrepreneurship Competition}
+  {China Council for the Promotion of International Trade, China Business Economics Society, etc.}
+  {November 2024}
+  {{}[\href{http://cubec.org.cn/newsinfo/8279295.html}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item Finalist Award
+\resumeItemListEnd
+
+\resumeProject
+  {China Data Journalism Competition}
+  {Organizing Committee of the 9th China Data Journalism Competition}
+  {November 2024}
+  {{}[\href{http://www.cdjcow.com/}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item National Second Prize
+\resumeItemListEnd
+
+
+\resumeProject
+  {National College Business Elite Challenge Innovation and Entrepreneurship Competition}
+  {China Council for the Promotion of International Trade, China Business Economics Society, etc.}
+  {November 2024}
+  {{}[\href{http://www.cubec.org.cn/}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item Runner-up in the National Finals
+  \item National First Prize
+\resumeItemListEnd
+
+\resumeProject
+  {Chinese Collegiate Computing Competition(4C)}
+  {Organizing Committee of the China College Students Computer Design Competition}
+  {July 2024}
+  {{}[\href{https://jsjds.blcu.edu.cn/gyds1/dsjj.htm}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item National Second Prize in Web Product Track
+\resumeItemListEnd
+
+\resumeProject
+  {Innovation, Creativity, and Entrepreneurship Competition}
+  {Organizing Committee of the National College Students E-Commerce "Innovation, Creativity and Entrepreneurship" Challenge}
+  {July 2024}
+  {{}[\href{http://www.3chuang.net/}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item National Second Prize
+\resumeItemListEnd
+
+\resumeProject
+  {National College Students Statistical Modeling Competition}
+  {China Statistical Education Society}
+  {August 2023}
+  {{}[\href{http://tjjmds.ai-learning.net/}{\textcolor{darkblue}{\faIcon{globe}}}]}
+\resumeItemListStart
+  \item First Prize in the Beijing Division
+\resumeItemListEnd
+
+\resumeProject
+  {National Undergraduate Entrepreneurship Practice Program(ID: 
+202410052002S)}
+  {Minzu University of China \& Ministry of Education of the PRC}
+  {June 2024}
+  {{}[\href{http://gjcxcy.bjtu.edu.cn/NewLXItemListForStudentDetail.aspx?ItemNo=1253680&year=2024&type=student&IsLXItem=0}{\textcolor{darkblue}{\faIcon{globe}}}]}
+
+
+
+
+\resumeSubHeadingListEnd
+
+\vspace{-6mm}
+
+\section{\textbf{Skills}}
+\vspace{-0.4mm}
+\resumeHeadingSkillStart
+  \resumeSubItem{Technical Tools:}
+    {Python, R, MATLAB, C++, JavaScript, HTML/CSS, React.js, Flask, FastAPI, MySQL, MongoDB, SQLite}
+  \resumeSubItem{Data Science \& Analytics:}
+    {PyTorch, scikit-learn, HuggingFace, Pandas, NumPy, Matplotlib, Stata, SPSS, Excel, LaTeX}
+  \resumeSubItem{Core Competencies:}
+    {Financial Modeling, Time Series Forecasting, Multimodal LLMs, K-Line Recognition, Quantitative Analysis, Econometrics, Academic Research, Reproducibility}
+  \resumeSubItem{Language:}
+    {IELTS 7.0 (Reading 8.5)}
+\resumeHeadingSkillEnd
+
+\end{document}

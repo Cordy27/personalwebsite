@@ -7,56 +7,40 @@ const Experience: React.FC = () => {
   const { t } = useLanguage();
   const experiences = [
     {
-      company: 'Quavic Tech Co., Ltd.',
-      position: '联合创始人，产品负责人',
-      period: '2024年8月 - 2025年8月',
-      location: '北京',
+      company: t.experience.workDetails.job1.company,
+      position: t.experience.workDetails.job1.position,
+      period: t.experience.workDetails.job1.period,
+      location: t.experience.workDetails.job1.location,
       website: 'https://quavictech.com/',
-      achievements: [
-        '主导开发多模态AI驱动的戏剧教育平台，从0到1完成产品设计到商业化落地，首年B2G收入突破10万元人民币',
-        '成功获得Wteam非稀释性资金投资，获得投资方对技术实力和商业模式的认可',
-        '独立设计并开发集成大语言模型的模块化Web应用架构，在中国大学生计算机设计大赛中荣获全国二等奖'
-      ],
-      skills: ['AI/ML', '产品管理', '创业融资', 'Web开发']
+      achievements: t.experience.workDetails.job1.description,
+      skills: t.experience.workDetails.job1.skills
     },
     {
-      company: 'MiraclePlus (原Y Combinator中国)',
-      position: '创始人关系与精准研究实习生',
-      period: '2024年8月 - 2025年1月',
-      location: '北京',
+      company: t.experience.workDetails.job2.company,
+      position: t.experience.workDetails.job2.position,
+      period: t.experience.workDetails.job2.period,
+      location: t.experience.workDetails.job2.location,
       website: 'https://www.miracleplus.com/',
-      achievements: [
-        '深度研究前沿AI技术（AI for Science、大语言模型、多模态），识别新兴趋势并为投资决策提供数据支撑',
-        '系统梳理200+所高校和企业的人才网络资源，建立创业项目储备库，促进产学研商业化合作',
-        '独立完成项目初步筛选（市场规模分析、单位经济测算）和Pre-DD，撰写数据驱动的投资分析报告，为投资决策提供专业建议',
-        '深度参与Sealos共同领投的A轮前融资和实时AI仿真平台种子轮融资，负责商业尽职调查和条款清单设计，两轮融资规模均达数千万人民币'
-      ],
-      skills: ['投资分析', '市场研究', '尽职调查', 'AI趋势分析']
+      achievements: t.experience.workDetails.job2.description,
+      skills: t.experience.workDetails.job2.skills
     },
     {
-      company: '光大证券',
-      position: '量化研究实习生',
-      period: '2024年6月 - 2024年8月',
-      location: '远程',
+      company: t.experience.workDetails.job3.company,
+      position: t.experience.workDetails.job3.position,
+      period: t.experience.workDetails.job3.period,
+      location: t.experience.workDetails.job3.location,
       website: 'http://www.ebscn.com/',
-      achievements: [
-        '熟练运用Python和量化分析工具进行策略回测，系统评估交易算法的有效性和稳定性',
-        '独立开发多维度量化策略体系，涵盖选股框架、择时模型和风险收益评估标准',
-        '通过精细化参数调优和动态风险管理机制，持续优化现有策略，显著提升风险调整后收益水平'
-      ],
-      skills: ['量化分析', 'Python', '策略回测', '风险管理']
+      achievements: t.experience.workDetails.job3.description,
+      skills: t.experience.workDetails.job3.skills
     },
     {
-      company: '卓晔私募基金',
-      position: '行业研究实习生',
-      period: '2024年6月 - 2024年8月',
-      location: '远程',
+      company: t.experience.workDetails.job4.company,
+      position: t.experience.workDetails.job4.position,
+      period: t.experience.workDetails.job4.period,
+      location: t.experience.workDetails.job4.location,
       website: 'http://www.zhuoyetz.com/',
-      achievements: [
-        '深度参与PE投资AI基础设施领域研究，负责数据清洗/挖掘、行业洞察分析和投资价值评估框架构建',
-        '全面支持AI行业交易尽职调查：深入分析行业发展趋势、竞争格局和目标公司基本面，为投资可行性评估和投资备忘录撰写提供专业支持'
-      ],
-      skills: ['行业研究', '尽职调查', '投资分析', 'AI基础设施']
+      achievements: t.experience.workDetails.job4.description,
+      skills: t.experience.workDetails.job4.skills
     }
   ];
 
@@ -64,36 +48,32 @@ const Experience: React.FC = () => {
     {
       year: '2025',
       events: [
-        { month: '6月', event: '获得"正大杯"全国大学生市场调研与分析大赛全国一等奖' },
-        { month: '1月', event: '完成MiraclePlus实习，获得投资分析经验' }
+        { month: t.experience.timelineEvents.event1.month, event: t.experience.timelineEvents.event1.event },
+        { month: t.experience.timelineEvents.event6.month, event: t.experience.timelineEvents.event6.event }
       ]
     },
     {
       year: '2024',
       events: [
-        { month: '12月', event: '参加内地与港澳台创新创业大赛，获得入围奖' },
-        { month: '11月', event: '获得中国数据新闻大赛全国二等奖' },
-        { month: '11月', event: '获得全国大学生商业精英挑战赛创新创业竞赛全国总决赛亚军、全国一等奖' },
-        { month: '9月', event: '开始国际组织后备人才微专业学习' },
-        { month: '8月', event: '创立Quavic Tech，担任联合创始人' },
-        { month: '8月', event: '加入MiraclePlus实习' },
-        { month: '7月', event: '获得中国大学生计算机设计大赛全国二等奖' },
-        { month: '7月', event: '获得全国大学生电子商务"创新、创意及创业"挑战赛全国二等奖' },
-        { month: '6月', event: '在光大证券和卓晔基金实习' },
-        { month: '6月', event: '获批国家级大学生创新创业实践项目' }
+        { month: t.experience.timelineEvents.event7.month, event: t.experience.timelineEvents.event7.event },
+        { month: t.experience.timelineEvents.event8.month, event: t.experience.timelineEvents.event8.event },
+        { month: t.experience.timelineEvents.event9.month, event: t.experience.timelineEvents.event9.event },
+        { month: t.experience.timelineEvents.event10.month, event: t.experience.timelineEvents.event10.event },
+        { month: t.experience.timelineEvents.event11.month, event: t.experience.timelineEvents.event11.event },
+        { month: t.experience.timelineEvents.event12.month, event: t.experience.timelineEvents.event12.event }
       ]
     },
     {
       year: '2023',
       events: [
-        { month: '12月', event: '参加剑桥大学冬季学术研究研讨会，获得Prof. Nicola Clayton教授推荐信' },
-        { month: '8月', event: '获得全国大学生统计建模竞赛北京赛区一等奖' }
+        { month: t.experience.timelineEvents.event13.month, event: t.experience.timelineEvents.event13.event },
+        { month: t.experience.timelineEvents.event14.month, event: t.experience.timelineEvents.event14.event }
       ]
     },
     {
       year: '2022',
       events: [
-        { month: '9月', event: '进入中央民族大学金融学专业学习，主修金融学，辅修数学' }
+        { month: t.experience.timelineEvents.event15.month, event: t.experience.timelineEvents.event15.event }
       ]
     }
   ];
@@ -124,7 +104,7 @@ const Experience: React.FC = () => {
             className="text-3xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center gap-3"
           >
             <Briefcase className="w-8 h-8 text-blue-600" />
-            工作经历
+            {t.experience.workExperience}
           </motion.h2>
           
           <div className="space-y-8">
@@ -170,7 +150,7 @@ const Experience: React.FC = () => {
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
                     <Award className="w-4 h-4 text-yellow-500" />
-                    主要成就
+                    {t.about.achievements}
                   </h4>
                   <ul className="space-y-2">
                     {exp.achievements.map((achievement, achievementIndex) => (
@@ -185,7 +165,7 @@ const Experience: React.FC = () => {
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
                     <TrendingUp className="w-4 h-4 text-green-500" />
-                    相关技能
+                    {t.about.skills}
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.skills.map((skill, skillIndex) => (
@@ -213,7 +193,7 @@ const Experience: React.FC = () => {
             className="text-3xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center gap-3"
           >
             <Calendar className="w-8 h-8 text-purple-600" />
-            发展历程
+            {t.experience.timeline}
           </motion.h2>
           
           <div className="relative">

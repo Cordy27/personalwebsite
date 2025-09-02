@@ -9,10 +9,10 @@ const Home: React.FC = () => {
   const { t, language, setLanguage } = useLanguage();
   
   const skills = [
-    { icon: <Code className="w-6 h-6" />, title: language === 'zh' ? '技术开发' : 'Technical Development', desc: 'Python, React, AI/ML' },
-    { icon: <TrendingUp className="w-6 h-6" />, title: language === 'zh' ? '金融分析' : 'Financial Analysis', desc: language === 'zh' ? '量化交易, 风险管理' : 'Quantitative Trading, Risk Management' },
-    { icon: <Brain className="w-6 h-6" />, title: language === 'zh' ? 'AI研究' : 'AI Research', desc: language === 'zh' ? '多模态LLM, 深度学习' : 'Multimodal LLM, Deep Learning' },
-    { icon: <Award className="w-6 h-6" />, title: language === 'zh' ? '创业经验' : 'Entrepreneurship', desc: language === 'zh' ? '产品设计, 商业运营' : 'Product Design, Business Operations' }
+    { icon: <Code className="w-6 h-6" />, title: t.home.technicalDevelopment, desc: t.home.technicalDesc },
+    { icon: <TrendingUp className="w-6 h-6" />, title: t.home.financialAnalysis, desc: t.home.financialDesc },
+    { icon: <Brain className="w-6 h-6" />, title: t.home.aiResearch, desc: t.home.aiDesc },
+    { icon: <Award className="w-6 h-6" />, title: t.home.entrepreneurship, desc: t.home.entrepreneurshipDesc }
   ];
 
   return (
@@ -128,7 +128,7 @@ const Home: React.FC = () => {
               className="text-white"
             >
               <div className="text-4xl font-bold mb-2">3+</div>
-              <div className="text-blue-100">年经验</div>
+              <div className="text-blue-100">{t.home.yearsExperience}</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -138,7 +138,7 @@ const Home: React.FC = () => {
               className="text-white"
             >
               <div className="text-4xl font-bold mb-2">10+</div>
-              <div className="text-blue-100">获奖项目</div>
+              <div className="text-blue-100">{t.home.awardProjects}</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -148,7 +148,7 @@ const Home: React.FC = () => {
               className="text-white"
             >
               <div className="text-4xl font-bold mb-2">3</div>
-              <div className="text-blue-100">产品Demo</div>
+              <div className="text-blue-100">{t.home.productDemos}</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -158,7 +158,7 @@ const Home: React.FC = () => {
               className="text-white"
             >
               <div className="text-4xl font-bold mb-2">100K+</div>
-              <div className="text-blue-100">营收创造</div>
+              <div className="text-blue-100">{t.home.revenueGenerated}</div>
             </motion.div>
           </div>
         </div>

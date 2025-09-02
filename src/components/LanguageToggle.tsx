@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Globe } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface LanguageToggleProps {
   language: 'zh' | 'en';
@@ -8,6 +9,8 @@ interface LanguageToggleProps {
 }
 
 const LanguageToggle: React.FC<LanguageToggleProps> = ({ language, onLanguageChange }) => {
+  const { t } = useLanguage();
+  
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}

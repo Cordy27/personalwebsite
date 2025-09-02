@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: t.contact.contactInfo.address,
-      value: '北京',
+      value: t.contact.contactDetails.address,
       link: null
     }
   ];
@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
       icon: '🐙'
     },
     {
-      name: '微信',
+      name: t.contact.contactDetails.wechat,
       url: '#',
       icon: '💬'
     }

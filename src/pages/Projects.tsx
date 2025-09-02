@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const [videoErrors, setVideoErrors] = useState<Set<string>>(new Set());
 
-  // ESC键关闭视频
+          // {t.projects.ui.escToClose}
   useEffect(() => {
     const handleEscKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && selectedVideo) {
@@ -25,34 +25,34 @@ const Projects: React.FC = () => {
   const projects = [
     {
       id: 1,
-      title: '知游AI',
-      description: '多模态AI驱动的戏剧教育平台，集成大语言模型',
+      title: t.projects.projectDetails.zhiyouAI.title,
+      description: t.projects.projectDetails.zhiyouAI.description,
       video: '/product/知游AI_demo.mp4',
       thumbnail: '/product/知游AI.png',
-      tags: ['AI', '教育', '多模态', 'React'],
-      achievements: ['全国二等奖', '逻辑与数据流分析'],
+      tags: t.projects.projectDetails.zhiyouAI.tags,
+      achievements: t.projects.projectDetails.zhiyouAI.achievements,
       github: '#',
       demo: '#'
     },
     {
       id: 2,
-      title: '播客平台',
-      description: '创新的播客内容创作和分享平台，提供丰富的音频内容管理功能',
+      title: t.projects.projectDetails.podcastPlatform.title,
+      description: t.projects.projectDetails.podcastPlatform.description,
       video: '/product/播客平台.mp4',
       thumbnail: '/product/播客平台.png',
-      tags: ['音频', '内容管理', 'Web应用'],
-      achievements: ['用户友好', '功能完整', '音视频分析'],
+      tags: t.projects.projectDetails.podcastPlatform.tags,
+      achievements: t.projects.projectDetails.podcastPlatform.achievements,
       github: '#',
       demo: '#'
     },
     {
       id: 3,
-      title: '洛极克人工智能+',
-      description: '人工智能综合教育应用平台，展示AI技术在实际场景中的应用，“人工智能+”高等教育典型案例',
+      title: t.projects.projectDetails.luojikeAI.title,
+      description: t.projects.projectDetails.luojikeAI.description,
       video: '/product/洛极克_人工智能+.mp4',
       thumbnail: '/product/洛极克_人工智能+.png',
-      tags: ['AI', '深度学习', '创新应用'],
-      achievements: ['教育部', '全国一等奖',  '100K+营收', '非稀释性融资'],
+      tags: t.projects.projectDetails.luojikeAI.tags,
+      achievements: t.projects.projectDetails.luojikeAI.achievements,
       github: '#',
       demo: '#'
     }
@@ -60,10 +60,10 @@ const Projects: React.FC = () => {
 
   const researchProjects = [
     {
-      title: '多模态LLM在金融K线分析中的结构创新',
-      description: '在LLaVA投影层开发分割模块，提升K线形态识别准确率15%，获得国家级大学生创新创业训练计划项目批准',
+      title: t.projects.projectDetails.researchProject.title,
+      description: t.projects.projectDetails.researchProject.description,
       technologies: ['Python', 'PyTorch', 'HuggingFace', 'NumPy', 'Pandas'],
-      achievements: ['准确率提升15%', '国家级项目', 'GCCX202510052028']
+      achievements: t.projects.projectDetails.researchProject.achievements
     }
   ];
 
@@ -108,14 +108,14 @@ const Projects: React.FC = () => {
                                   {/* Video Thumbnail */}
                   <div className="relative h-48 bg-gray-200 overflow-hidden">
                     {videoErrors.has(project.video) ? (
-                      // 显示占位符
+                      // Show placeholder
                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
                         <div className="text-center">
                           <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                             <ImageIcon className="w-8 h-8 text-blue-500" />
                           </div>
                           <p className="text-sm font-medium text-gray-700">{project.title}</p>
-                          <p className="text-xs text-gray-500 mt-1">项目预览</p>
+                          <p className="text-xs text-gray-500 mt-1">{t.projects.ui.projectPreview}</p>
                         </div>
                       </div>
                     ) : (
@@ -125,7 +125,7 @@ const Projects: React.FC = () => {
                         preload="metadata"
                         onError={() => setVideoErrors(prev => new Set(prev).add(project.video))}
                         onLoadStart={() => {
-                          // 预加载视频元数据
+                          // Preload video metadata
                         }}
                       >
                         <source src={project.video} type="video/mp4" />
@@ -267,7 +267,7 @@ const Projects: React.FC = () => {
             <button
               onClick={() => setSelectedVideo(null)}
               className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white text-3xl font-bold w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-200 z-10"
-              aria-label="关闭视频"
+              aria-label={t.projects.ui.closeVideo}
             >
               ✕
             </button>
@@ -276,8 +276,8 @@ const Projects: React.FC = () => {
                 <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <ImageIcon className="w-10 h-10 text-gray-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">视频暂不可用</h3>
-                <p className="text-gray-600">该项目的演示视频正在准备中，敬请期待！</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{t.projects.ui.videoUnavailable}</h3>
+                <p className="text-gray-600">{t.projects.ui.videoUnavailableDesc}</p>
               </div>
             ) : (
               <video
@@ -293,7 +293,7 @@ const Projects: React.FC = () => {
                 onLoadedData={() => console.log('Video data loaded:', selectedVideo)}
               >
                 <source src={selectedVideo} type="video/mp4" />
-                您的浏览器不支持视频播放。
+                {t.projects.ui.browserNotSupported}
               </video>
             )}
           </div>

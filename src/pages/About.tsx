@@ -7,66 +7,64 @@ const About: React.FC = () => {
   const { t } = useLanguage();
   const education = [
     {
-      school: '中央民族大学',
-      degree: '经济学学士学位',
-      major: '金融学专业',
-      period: '2022年9月 - 2026年6月',
-      location: '北京',
-      details: [
-        '主修金融学，辅修数学课程',
-        '核心课程：国际金融、金融营销、证券投资、金融风险管理',
-        '高等数学II、统计学、信息素养II(Python)、数学分析、高等代数'
-      ]
+      school: t.about.educationDetails.school1,
+      degree: t.about.educationDetails.degree1,
+      major: t.about.educationDetails.major1,
+      period: t.about.educationDetails.period1,
+      location: t.about.educationDetails.location1,
+      details: t.about.educationDetails.details1
     },
     {
-      school: '中央民族大学 & CCIPE',
-      degree: '微专业：国际组织后备人才',
-      major: '数据科学与大语言模型',
-      period: '2024年9月 - 2025年9月',
-      location: '北京',
-      details: [
-        '数据科学与大数据分析',
-        '大语言模型：基础、实践与挑战',
-        '国际组织理论与实践'
-      ]
+      school: t.about.educationDetails.school2,
+      degree: t.about.educationDetails.degree2,
+      major: t.about.educationDetails.major2,
+      period: t.about.educationDetails.period2,
+      location: t.about.educationDetails.location2,
+      details: t.about.educationDetails.details2
     },
     {
-      school: '剑桥大学 Lucy Cavendish College',
-      degree: '冬季学术研究研讨会',
-      major: '商业与金融',
-      period: '2023年12月 - 2024年1月',
-      location: '英国剑桥',
-      details: [
-        '获得项目学术主任 Prof. Nicola Clayton 推荐信'
-      ]
+      school: t.about.educationDetails.school3,
+      degree: t.about.educationDetails.degree3,
+      major: t.about.educationDetails.major3,
+      period: t.about.educationDetails.period3,
+      location: t.about.educationDetails.location3,
+      details: t.about.educationDetails.details3
     }
   ];
 
   const skills = [
     {
-      category: '技术工具',
+      category: t.about.skillCategories.technicalTools,
       items: ['Python', 'R', 'MATLAB', 'C++', 'JavaScript', 'HTML/CSS', 'React.js', 'Flask', 'FastAPI', 'MySQL', 'MongoDB', 'SQLite']
     },
     {
-      category: '数据科学与分析',
+      category: t.about.skillCategories.dataScience,
       items: ['PyTorch', 'scikit-learn', 'HuggingFace', 'Pandas', 'NumPy', 'Matplotlib', 'Stata', 'SPSS', 'Excel', 'LaTeX']
     },
     {
-      category: '核心能力',
-      items: ['金融建模', '时间序列预测', '多模态LLM', 'K线识别', '量化分析', '计量经济学', '数据分析']
+      category: t.about.skillCategories.coreCompetencies,
+      items: [
+        t.about.coreSkills.financialModeling,
+        t.about.coreSkills.timeSeriesForecasting,
+        t.about.coreSkills.multimodalLLM,
+        t.about.coreSkills.klineRecognition,
+        t.about.coreSkills.quantitativeAnalysis,
+        t.about.coreSkills.econometrics,
+        t.about.coreSkills.dataAnalysis
+      ]
     }
   ];
 
   const awards = [
-    { title: '"正大杯"全国大学生市场调研与分析大赛', level: '全国一等奖', year: '2025年6月' },
-    { title: '内地与港澳台创新创业大赛', level: '入围奖', year: '2024年11月' },
-    { title: '中国数据新闻大赛', level: '全国二等奖', year: '2024年11月' },
-    { title: '全国大学生商业精英挑战赛创新创业竞赛', level: '全国总决赛亚军', year: '2024年11月' },
-    { title: '全国大学生商业精英挑战赛创新创业竞赛', level: '全国一等奖', year: '2024年11月' },
-    { title: '中国大学生计算机设计大赛(4C)', level: 'Web产品赛道全国二等奖', year: '2024年7月' },
-    { title: '全国大学生电子商务"创新、创意及创业"挑战赛', level: '全国二等奖', year: '2024年7月' },
-    { title: '全国大学生统计建模竞赛', level: '北京赛区一等奖', year: '2023年8月' },
-    { title: '国家级大学生创新创业实践项目', level: '结项项目', year: '2024年6月' }
+    { title: t.about.awards.award1.title, level: t.about.awards.award1.level, year: t.about.awards.award1.year },
+    { title: t.about.awards.award2.title, level: t.about.awards.award2.level, year: t.about.awards.award2.year },
+    { title: t.about.awards.award3.title, level: t.about.awards.award3.level, year: t.about.awards.award3.year },
+    { title: t.about.awards.award4.title, level: t.about.awards.award4.level, year: t.about.awards.award4.year },
+    { title: t.about.awards.award5.title, level: t.about.awards.award5.level, year: t.about.awards.award5.year },
+    { title: t.about.awards.award6.title, level: t.about.awards.award6.level, year: t.about.awards.award6.year },
+    { title: t.about.awards.award7.title, level: t.about.awards.award7.level, year: t.about.awards.award7.year },
+    { title: t.about.awards.award8.title, level: t.about.awards.award8.level, year: t.about.awards.award8.year },
+    { title: t.about.awards.award9.title, level: t.about.awards.award9.level, year: t.about.awards.award9.year }
   ];
 
   return (
@@ -107,7 +105,7 @@ const About: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Globe className="w-5 h-5 text-blue-600" />
-                  <span className="text-gray-700">北京</span>
+                  <span className="text-gray-700">{t.contact.contactDetails.address}</span>
                 </div>
               </div>
             </div>
